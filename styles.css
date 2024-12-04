@@ -1,0 +1,44 @@
+div.card-header {
+    background-color: #3b49df;
+    color: white;
+    font-weight: 400;
+}
+
+.profile-details li {
+    display: inline-block;
+    list-style: none;
+    font-size: 17px;
+}
+  
+.profile-details>.text-muted {
+    width: 120px;
+    text-align: end;
+}
+
+.progress-bar {
+    text-align: right;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color:var(--white);
+}
+
+.bar {
+    width: 100%;
+    background-color: gray;
+}
+    
+.course1 {
+    width:100%; 
+}
+    
+.course2 {
+    width:90%;
+}
+    
+.course3 {
+    width:50%; 
+}
+    
+.course4 {
+    width:60%;
+}

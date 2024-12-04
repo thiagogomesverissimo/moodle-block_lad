@@ -1,0 +1,203 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-4">
+            <img class="d-block m-auto"
+                style="width: 150px; height: 150px; border-radius: 50%;"
+                src="https://www.pngarts.com/files/5/Avatar-Face-PNG-Background-Image.png"
+                alt="">
+        </div>
+        <div class="col-8">
+            <ul class="profile-details">
+                <li class="text-muted">Name : </li>
+                <li class="ms-3 fix-w"> Thiago Gomes Verissimo</li>
+            </ul>
+            <ul class="profile-details">
+                <li class="text-muted">Email : </li>
+                <li class="ms-3 fix-w"> thiago.verissimo@usp.br</li>
+            </ul>
+            <ul class="profile-details">
+                <li class="text-muted">Curso : </li>
+                <li class="ms-3 fi x-w"> Bacharelado em Ciência da Computação</li>
+            </ul>
+            <ul class="profile-details">
+                <li class="text-muted">Ingresso : </li>
+                <li class="ms-3 fix-w"> 20/02/2020</li>
+            </ul>
+        </div>
+    </div>
+
+  <div class="row">
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault" style="font-size: large">
+                Permito que meus dados sejam usados como entrada nos modelos preditivos
+            </label>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-8">
+        <div class="card mb-3">
+        <div class="card-header">Evolução da Média Ponderada</div>
+        <div class="card-body">
+            <p class="card-text">
+                <div id="grades"></div>
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card mb-3">
+        <div class="card-header">Disciplinas atuais</div>
+        <div class="card-body">
+            <p class="card-text">
+            
+            <div class="progress-content">
+				<p>MAC0110</p>
+				<div class="bar">
+					<div class="progress-bar course1">100%</div>
+				</div>
+
+				<p>MAC0121</p>
+				<div class="bar">
+					<div class="progress-bar course2">90%</div>
+				</div>
+
+				<p>MAC0215</p>
+				<div class="bar">
+					<div class="progress-bar course3">50%</div>
+				</div>
+
+				<p>MAC0313</p>
+				<div class="bar">
+					<div class="progress-bar course4">60%</div>
+				</div>
+			</div>
+
+            </p>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+        <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">Evasão</div>
+        <div class="card-body">
+            <h5 class="card-title">Probabilidade preditiva de evasão</h5>
+            <p class="card-text" style="font-size: x-large">
+                71,5%
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">Nível de engajamento</div>
+        <div class="card-body">
+            <p class="card-text">
+                <div id="engajamento"></div>
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">Planejamento</div>
+        <div class="card-body">
+            <h5 class="card-title">Sugestões de Disciplinas para o próximo semestre</h5>
+            <p class="card-text">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Discplina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAC0219</td>
+                        <td> Programação Concorrente e Paralela </td>
+                    </tr>
+                    <tr>
+                        <td>MAC0459</td>
+                        <td>Ciência e Engenharia de Dados </td>
+                    </tr>
+                </tbody>
+                </table>
+            </p>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdn.plot.ly/plotly-2.16.4.min.js"></script>
+<script>
+    var student = {
+        x: [2020, 2021, 2022, 2023, 2024],
+        y: [7.3, 8.2, 5.1, 9.4, 9.8],
+        mode: 'lines+markers',
+        type: 'scatter',
+        name: 'Sua média',
+    };
+
+    var turma = {
+        x: [2020, 2021, 2022, 2023, 2024],
+        y: [8.1, 7.1, 6.3, 8.1,8.2],
+        mode: 'lines+markers',
+        type: 'scatter',
+        name: 'Média dos ingressantes do seu ano',
+    };
+
+    var layout = {
+        height: 200,
+        xaxis: {
+            range: [2020,2024],
+        },
+        yaxis: {
+            range: [5, 10],
+            side: 'left',
+            overlaying: 'y',
+            type: 'linear'
+        },
+        margin: {
+            l: 20,
+            r: 0,
+            b: 20,
+            t: 0,
+            pad: 5
+        },
+        legend: {x: 0, y: 1.2}
+    };
+
+    Plotly.newPlot(document.getElementById('grades'), [student, turma], layout);
+
+    /* mais sum gráfico */
+        var data = [{
+        type: "pie",
+        values: [2, 3, 4, 4],
+        labels: ["Tempo na plataforma", "Interação", "Atividades", "Notas"],
+        textinfo: "label+percent",
+        textposition: "outside",
+        automargin: true
+    }];
+
+    var layout = {
+        height: 250,
+        width: 250,
+        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        showlegend: false
+    };
+
+    Plotly.newPlot(document.getElementById('engajamento'), data, layout);
+
+</script>
+
+
